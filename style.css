@@ -1,0 +1,113 @@
+body {
+      margin: 0;
+      font-family: 'Comfortaa', sans-serif;
+      background: #FCFCF7;
+      color: #111;
+    }
+
+    /* Верхнее меню */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 35px 40px;
+      font-size: 17px;
+    }
+    .logo{
+        font-family: 'Comfortaa', sans-serif;
+        font-size: 18px;
+    }
+   nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #222;
+  font-family: 'Comfortaa', sans-serif;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: teal;
+}
+
+
+
+.phone a {
+    text-decoration: none;
+    color: #222;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 17px;
+    transition: color 0.3s ease; 
+}
+
+.phone a:hover {
+  color: teal;                       /* зелёно-бирюзовый при наведении */
+}
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 60px;
+      min-height: 65vh;
+    }
+    .hero-text {
+      max-width: 45%;
+    }
+    .hero-text h1 {
+      font-size: 50px;
+      font-weight: 700;
+      margin: 0 0 20px;
+      line-height: 1.2;
+    }
+    .hero-text p {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* Калькулятор */
+    .hero-image {
+      position: relative;
+      max-width: 400px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero-image img {
+      width: 100%;
+      filter: drop-shadow(0px 15px 25px rgba(0,0,0,0.25));
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Нижние подписи */
+.bottom-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+  font-size: 16px;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.bottom-info .left {
+  display: flex;
+  align-items: baseline; /* выравнивание по нижней линии текста */
+}
+
+.bottom-info .years {
+  font-size: 42px;     /* крупное число */
+  font-weight: 700;    /* жирное */
+  color: #0f3d3e;      /* глубокий тёмный зелёный */
+  margin-right: 10px;
+}
+
+.bottom-info .text {
+  font-size: 14px;     /* поменьше */
+  font-weight: 400;    /* обычный */
+  color: #555;         /* светлее */
+  text-transform: uppercase; /* если нужно как в примере */
+}
+
+.bottom-info .right {
+  text-align: right;
+}
