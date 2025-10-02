@@ -111,3 +111,31 @@ nav a:hover {
 .bottom-info .right {
   text-align: right;
 }
+section {
+  min-height: 100vh;        /* каждая секция на всю высоту экрана */
+  display: flex;
+  justify-content: center;  /* выравнивание по центру */
+  align-items: center;
+  padding: 60px;
+}
+
+.about {
+  background: #f5f5f5; /* чуть светлый фон */
+}
+
+.works {
+  background: #e8f0f2; /* другой фон */
+}
+
+.experience {
+  background: #f9f0e8;
+}
+
+.reviews {
+  background: #eef9e8;
+}
+
+.content {
+  max-width: 800px;
+  text-align: center;
+}
