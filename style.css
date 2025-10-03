@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll; /* даже если нет скролла, место под него зарезервировано */
+}
+
 body 
 {
   margin: 0;
@@ -12,8 +16,7 @@ header
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 35px 40px;
-  font-size: 17px;
+  padding: 2.5% 2.7%;
   
 }
 
@@ -30,6 +33,8 @@ nav a
   color: #222;
   font-family: 'Comfortaa', sans-serif;
   transition: color 0.3s ease;
+  
+  font-size: 1.0625rem;
 }
 
 nav a:hover 
@@ -64,6 +69,7 @@ nav a:hover
 .hero-text 
 {
   max-width: 45%;
+  margin-left: 0.5vw; /* отступ тоже в процентах */
 }
 
 .hero-text h1 
@@ -72,11 +78,14 @@ nav a:hover
   font-weight: 700;
   margin: 0 0 20px;
   line-height: 1.2;
+ 
 }
+
 .hero-image img {
-  width: 450px;   /* увеличиваем размер */
+  width: 29.5vw;      /* ширина картинки = 35% ширины экрана */
+  max-width: 600px; /* чтобы не становилась слишком огромной */
   height: auto;
-  margin-right: 10px;  /* двигаем вправо */
+  margin-left: 3vw; /* отступ тоже в процентах */
 }
 
 .hero-text p 
@@ -94,6 +103,7 @@ nav a:hover
   padding: 40px 60px;
   font-size: 16px;
   font-family: 'Comfortaa', sans-serif;
+  
 }
 
 .bottom-info .left 
@@ -156,4 +166,120 @@ section
 {
   max-width: 800px;
   text-align: center;
+}
+
+
+/* Плавающая кнопка */
+.contact-fab {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: #009688; /* изумрудный / teal */
+  color: #fff;
+  font-size: 26px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.contact-fab {
+  background: radial-gradient(circle at top left, #00ffcc, #0066ff, #ff00cc);
+  animation: hueShift 5s linear infinite;
+}
+
+@keyframes hueShift {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(360deg); }
+}
+
+.contact-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* Затемнение фона */
+.contact-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Модальное окно */
+.contact-modal {
+  background: #FCFCF7;
+  padding: 25px 30px;
+  border-radius: 12px;
+  text-align: center;
+  width: 280px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: fadeInUp 0.3s ease;
+   font-family: 'Comfortaa', sans-serif;
+}
+
+.contact-modal h3 {
+  margin-top: 0;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 20px;
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.contact-modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-modal ul li {
+  margin: 10px 0;
+}
+
+.contact-modal ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #009688;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: background-color 0.25s;
+}
+
+.contact-modal ul li a:hover {
+  background-color: #00796b;
+}
+
+/* Кнопка закрытия */
+.close-modal {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Анимация появления */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

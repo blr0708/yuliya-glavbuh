@@ -1,3 +1,7 @@
+<!--Кнопки CTA ты говоришь есть дальше — это хорошо, но многие пользователи могут даже не долистать. Может, стоит хотя бы одну маленькую кнопку сразу под слоганом добавить ("Связаться" / "Узнать услуги") — чтобы прям тут был вариант действия.
+
+Иллюстрация классная, но можно чуть увеличить/сместить, чтобы не казалась второстепенной.чуть больше "эмоции" -->
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -75,6 +79,61 @@
     <p>Отзывы довольных клиентов.</p>
   </div>
 </section>
+<!-- Плавающая кнопка связи -->
+<button class="contact-fab" id="contactBtn" aria-label="Связаться">
+  ☎
+</button>
+
+<!-- Модальное окно связи -->
+<div class="contact-overlay" id="contactOverlay">
+  <div class="contact-modal">
+    <h3>Связаться со мной</h3>
+    <ul>
+      <li><a href="https://t.me/username" target="_blank">Telegram</a></li>
+      <li><a href="https://wa.me/1234567890" target="_blank">WhatsApp</a></li>
+      <li><a href="viber://chat?number=+1234567890" target="_blank">Viber</a></li>
+    </ul>
+    <button class="close-modal" id="closeModal">✕</button>
+  </div>
+</div>
+
+
+
+
+<script>
+  (function () {
+    const contactBtn = document.getElementById('contactBtn');
+    const contactOverlay = document.getElementById('contactOverlay');
+    const closeModal = document.getElementById('closeModal');
+
+    if (!contactBtn) { console.error('contactBtn not found'); return; }
+    if (!contactOverlay) { console.error('contactOverlay not found'); return; }
+    if (!closeModal) { console.error('closeModal not found'); }
+
+    function openModal() {
+      contactOverlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden'; // запрет прокрутки когда открыт
+    }
+
+    function closeModalFn() {
+      contactOverlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    contactBtn.addEventListener('click', openModal);
+    closeModal.addEventListener('click', closeModalFn);
+
+    contactOverlay.addEventListener('click', function (e) {
+      if (e.target === contactOverlay) closeModalFn();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeModalFn();
+    });
+  })();
+</script>
+</body>
+</html>
 
 </body>
 </html>
